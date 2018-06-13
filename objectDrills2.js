@@ -88,9 +88,11 @@ const studentData = [
 function enrollInSummerSchool(students) {
   let newArray = [];
   for (let i = 0; i < students.length; i++) {
-    students.status = 'In Summer School';
-    const value = students[key];
-    newArray.push(students[i]);
+    newArray.push({
+      name: students[i].name,
+      status: "In Summer School",
+      course: students[i].course
+    });
   }
   return newArray;
 }
