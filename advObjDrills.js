@@ -49,17 +49,17 @@ console.log (obj.meals[3]);
 let heroes = [
   {
     name: 'Mercy',
-    job: 'healer'
+    job: 'Healer'
   },
 
   {
     name: 'Roadhog',
-    job: 'tank'
+    job: 'Tank'
   },
 
   {
     name: 'Tracer',
-    job: 'dps'
+    job: 'Dps'
   }
 ];
 
@@ -73,7 +73,7 @@ const loopThrough2 = function(obj) {
 loopThrough2(heroes);
 
 
-//6. Properties that aren't there
+//5. Properties that aren't there
 
 let heroes2 = [
   {
@@ -113,3 +113,43 @@ const loopThrough3 = function(obj) {
 };
 
 loopThrough3(heroes2);
+
+// 6. 
+
+// Object Cypher
+
+const words = {
+  w1: 'craft',
+  w2: 'block',
+  w3: 'argon',
+  w4: 'meter',
+  w5: 'bells',
+  w6: 'brown',
+  w7: 'croon',
+  w8: 'droop'
+};
+
+// decodeWords that utilizes decode function to accept a single string of words
+
+
+const decodeWords = function(obj) {
+  let result = '';
+  for (const key in obj) {
+    const value = obj[key];
+    if (value[0] === 'a') {
+      result+= value[1];
+    } else if (value[0] === 'b') {
+      result+= value[2];
+    } else if (value[0] === 'c') {
+      result+= value[3];
+    } else if (value[0] === 'd') {
+      result+= value[4];
+    } else {
+      result+= ' ';
+    }
+  } 
+  // return fully decoded message as a string
+  console.log(result);
+};
+
+decodeWords(words);
