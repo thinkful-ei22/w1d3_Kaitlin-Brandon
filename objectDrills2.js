@@ -90,7 +90,7 @@ function enrollInSummerSchool(students) {
   for (let i = 0; i < students.length; i++) {
     newArray.push({
       name: students[i].name,
-      status: "In Summer School",
+      status: 'In Summer School',
       course: students[i].course
     });
   }
