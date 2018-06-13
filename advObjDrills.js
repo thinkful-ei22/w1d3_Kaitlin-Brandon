@@ -157,7 +157,7 @@ decodeWords(words);
 */
 //7. Factory Functions with LOTR
 
-function createChar (charName, nickname, race, charOrigin, atk, def) {
+function createChar (charName, nickname, race, charOrigin, atk, def, weapon) {
 
   return {
     name: charName,
@@ -166,8 +166,9 @@ function createChar (charName, nickname, race, charOrigin, atk, def) {
     origin: charOrigin,
     attack: atk,
     defense: def,
+    weapon: weapon,
     describe: function(){
-      console.log(`${this.name} is a ${this.race} from ${this.origin}.`);
+      console.log(`${this.name} is a ${this.race} from ${this.origin} who uses a ${weapon}.`);
     },
     
     evaluateFight: function (character){
@@ -184,18 +185,33 @@ function createChar (charName, nickname, race, charOrigin, atk, def) {
   };
 }
 
-const characters = [createChar('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth',10, 6), 
-  createChar('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire',2,1), 
-  createChar('Frodo Baggins', 'frodo','Hobbit', 'The Shire', 3, 2 ), 
-  createChar('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8),
-  createChar('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5),
-  createChar('Arwen Undomiel', 'arwen', 'Half-Elf', 'Rivendall', 14, 2)];
+const characters = [createChar('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth',10, 6, 'wizard staff'), 
+  createChar('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire',2,1, 'the Ring'), 
+  createChar('Frodo Baggins', 'frodo','Hobbit', 'The Shire', 3, 2,'String and Barrow Blade' ), 
+  createChar('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8, 'Anduril'),
+  createChar('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5, 'Bow and Arrow'),
+  createChar('Arwen Undomiel', 'arwen', 'Half-Elf', 'Rivendall', 14, 2, 'Hadhafang')];
 
 
-characters.find(function(){
-  for (let i=0; i < characters.length; i++){
-    if (characters[i].nickname === 'aragorn'){
-      characters[i].describe();
-    }
-  }
+let charDesc = characters.find(function(character){
+  return character.nickname === 'aragorn';
 });
+
+charDesc.describe();
+
+const hobbitChar = characters.filter(character => {
+  return character.race === 'Hobbit';});
+
+console.log(hobbitChar);
+
+const highAtk = characters.filter(character => {
+  return character.attack > 5; });
+
+console.log(highAtk);
+
+
+// for (let i=0; i < characters.length; i++){
+//   if (characters[i].nickname === 'aragorn'){
+//     characters[i].describe();
+//   }
+// }
