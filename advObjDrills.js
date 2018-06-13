@@ -23,7 +23,7 @@ const testObj = {
   fum: 'look',
   quux: 'listen',
   spam: 'see'
-}
+};
 
 const loopThrough = function(obj) {
   for (const key in obj) {
@@ -42,3 +42,32 @@ const obj = {
 };
 
 console.log (obj.meals[3]);
+
+// 4. Arrays of objects
+
+
+let heroes = [
+  {
+    name: 'Mercy',
+    job: 'healer'
+  },
+
+  {
+    name: 'Roadhog',
+    job: 'tank'
+  },
+
+  {
+    name: 'Tracer',
+    job: 'dps'
+  }
+];
+
+const loopThrough2 = function(obj) {
+  for (let i = 0; i < obj.length; i++) {
+    console.log(obj[i].name);
+    console.log(obj[i].job);
+  }
+};
+
+loopThrough2(heroes);
