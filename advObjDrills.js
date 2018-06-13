@@ -34,3 +34,11 @@ const loopThrough = function(obj) {
 };
 
 loopThrough(testObj);
+
+//3. Arrays in Objects
+
+const obj = {
+  meals: ['breakfast', 'second breakfast', 'elevenses', 'afternoon tea', 'dinner', 'supper'],
+};
+
+console.log (obj.meals[3]);
