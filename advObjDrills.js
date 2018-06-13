@@ -71,3 +71,45 @@ const loopThrough2 = function(obj) {
 };
 
 loopThrough2(heroes);
+
+
+//6. Properties that aren't there
+
+let heroes2 = [
+  {
+    name: 'Mercy',
+    job: 'healer',
+    boss: 'King Koopa'
+  },
+
+  {
+    name: 'Roadhog',
+    job: 'tank',
+    boss: 'King Koopa'
+  },
+
+  {
+    name: 'Tracer',
+    job: 'dps',
+    boss: 'King Koopa',
+  },
+
+  {
+    name: 'King Koopa',
+    job: 'boss',
+  }
+];
+
+const loopThrough3 = function(obj) {
+  for (let i = 0; i < obj.length; i++) {
+    if (obj[i].job !== 'boss'){
+      console.log(`${obj[i].job} ${obj[i].name} reports to ${obj[i].boss}.`);
+    }
+    else {
+      console.log(`${obj[i].job} ${obj[i].name} doesn't report to anybody.`);
+
+    }
+  }
+};
+
+loopThrough3(heroes2);
