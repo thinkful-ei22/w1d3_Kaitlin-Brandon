@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 // 1. Object Initializers and Methods
 
 const loaf = {
@@ -153,3 +153,49 @@ const decodeWords = function(obj) {
 };
 
 decodeWords(words);
+
+*/
+//7. Factory Functions with LOTR
+
+function createChar (charName, nickname, race, charOrigin, atk, def) {
+
+  return {
+    name: charName,
+    nickname: nickname,
+    race: race,
+    origin: charOrigin,
+    attack: atk,
+    defense: def,
+    describe: function(){
+      console.log(`${this.name} is a ${this.race} from ${this.origin}.`);
+    },
+    
+    evaluateFight: function (character){
+      let x = this.atk - character.def;
+      let y = character.atk - this.def;
+      if (character.def > this.atk){
+        x = 0;
+      }
+      if (this.def > character.atk){
+        y = 0;
+      }
+      let damageCalc = `Your opponent takes ${x} damage and you receive ${y} damage`;
+    }
+  };
+}
+
+const characters = [createChar('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth',10, 6), 
+  createChar('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire',2,1), 
+  createChar('Frodo Baggins', 'frodo','Hobbit', 'The Shire', 3, 2 ), 
+  createChar('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8),
+  createChar('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5),
+  createChar('Arwen Undomiel', 'arwen', 'Half-Elf', 'Rivendall', 14, 2)];
+
+
+characters.find(function(){
+  for (let i=0; i < characters.length; i++){
+    if (characters[i].nickname === 'aragorn'){
+      characters[i].describe();
+    }
+  }
+});
